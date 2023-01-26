@@ -2,6 +2,11 @@
 
 :root{
     --blue:#24a4f9;
+    --white:rgb(250, 249, 249);
+    --box-shadow:.4rem .4rem 1rem rgb(250, 250, 250),
+                -.4rem -.4rem 1rem rgb(8, 206, 255);
+    --box-shadow-inset:.4rem .4rem 1rem #ccc inset,
+                      -.4rem -.4rem 1rem #fff inset;
 }
 
 *{
@@ -102,6 +107,13 @@ header .user img{
     border: .7rem solid var(--blue);
 }
 
+.member-status {
+    background: var(--bb-success-color);
+    border: 2px solid var(--bb-content-background-color);
+    border-radius: 100%;
+    position: absolute;
+}
+
 header .user .name {
     font-size: 3.5rem;
     color: #fff;
@@ -109,7 +121,7 @@ header .user .name {
 
 header .user .post {
     font-size: 3.5rem;
-    color: #fff;
+    color: var(--blue);
 }
 
 header .navbar {
@@ -147,20 +159,25 @@ header .navbar ul li a:hover{
     display: none;
 }
 
+
 .home{
     display: flex;
     justify-content: center;
+    text-align: center;
+    align-items: center;
     flex-flow: column;
     padding: 0 15rem;
 }
 
 .home h3{
     font-size: 2.5rem;
+    text-align: center;
     color:#fff;
 }
 
 .home h1{
     font-size:5rem;
+    text-align: center;
     color:#fff;
 }
 
@@ -168,10 +185,28 @@ header .navbar ul li a:hover{
     color: var(--blue);
 }
 
-.home p{
+.home .share{
+    position: relative;
+    top: 10rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    padding:1rem;
+}
+
+.home .share a{
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    box-shadow: var(--box-shadow);
+    margin:.5rem;
     font-size: 2rem;
-    color: #eee;
-    padding: 1rem 0;
+    color:#fff;
+    border-radius: .5rem;
+}
+
+.home .share a:hover{
+    box-shadow: var(--box-shadow-inset);
+    color:var(--blue);
 }
 
 .about .row{
@@ -180,12 +215,13 @@ header .navbar ul li a:hover{
     justify-content: center;
     flex-wrap: wrap;
     padding: 1rem 0;
+
  }
 
  .about .row .info{
     flex: 1 1 48rem;
     padding: 2rem 1rem;
-    padding-left: 6rem;
+    padding-left: 3rem;
  }
 
  .about .row .info h3{
@@ -220,10 +256,68 @@ header .navbar ul li a:hover{
     color: var(--blue);
   }
 
-  .about .row .counter .box h3 {
+  .about .row .counter h1 {
+    font-size: 3rem;
+    color: #fff;
+  }
+
+  .about .row .counter p {
     font-size: 2rem;
     color: #fff;
   }
+
+  .about .row .progress{
+    flex:1 1 40rem;
+}
+
+.about .row .progress h3{
+    color:var(--blue);
+    font-weight: normal;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 1rem;
+}
+
+.about .row .progress .bar{
+    box-shadow: var(--box-shadow);
+    border-radius: 5rem;
+    height:2rem;
+    padding:.5rem;
+    margin:1rem 1rem;
+}
+
+.about .row .progress .bar span{
+    display: block;
+    height: 100%;
+    background: var(--blue);
+    border-radius: 5rem;
+}
+
+.about .row .progress .bar-1-1 span{
+    width: 90%;
+}
+
+.about .row .progress .bar-1-2 span{
+    width: 75%;
+}
+
+.about .row .progress .bar-1-3 span{
+    width: 80%;
+}
+
+.about .row .progress .bar-2-1 span{
+    width: 95%;
+}
+
+.about .row .progress .bar-2-2 span{
+    width: 89%;
+}
+
+.about .row .progress .bar-2-3 span{
+    width: 65%;
+}
 
   .education .box-container{
     display: flex;
@@ -302,6 +396,44 @@ header .navbar ul li a:hover{
     transform: scale(1.2);
 }
 
+.work .box-container .box .box-content{
+    position: absolute;
+    top:0; left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--bg-color);
+    display: grid;
+    place-items: center;
+    transform: scale(0);
+}
+
+.certificate .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+}
+
+.certificate .box-container .box{
+    height: 20rem;
+    width: 26rem;
+    border-radius: 1rem;
+    margin: 2rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.certificate .box-container .box img{
+    height:100% ;
+    width: 100%;
+    object-fit: cover;
+}
+
+.certificate .box-container .box:hover img{
+    transform: scale(1.2);
+}
+
 .contact .row{
     display: flex;
     align-items: center;
@@ -361,6 +493,13 @@ header .navbar ul li a:hover{
 .contact .row .content .info h3 i{
     padding-right: 1rem;
     color: var(--blue);
+}
+
+.top{
+    position: fixed;
+    bottom: 7.5rem; right: 2rem;
+    z-index: 100;
+    display: none;
 }
 
 
